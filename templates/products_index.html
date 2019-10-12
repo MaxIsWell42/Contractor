@@ -1,0 +1,13 @@
+<!-- templates/products_index.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Transportation methods: </h1>
+
+<a href='/products/new'>New products</a>
+
+{% for product in products %}
+    <h2>{{ product.title }}</h2>
+    <small>{{ product.description }}</small>
+{% endfor %}
+{% endblock %}

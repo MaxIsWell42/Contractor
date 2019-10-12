@@ -1,0 +1,21 @@
+<fieldset>
+        <legend>Edit product</legend>
+        <!-- TITLE -->
+        <div class='form-group'>
+            <label for='product-title'>Title</label><br>
+            <input class='form-control' id='product-title' type='text' name='title' value='{{ product.title }}'/>
+        </div>
+    
+        <!-- DESCRIPTION -->
+        <div class='form-group'>
+            <label for='description'>Description</label><br>
+            <input class='form-control' id='description' type='text' name='description' value='{{ product.description }}' />
+        </div>
+    
+        <!-- DESCRIPTION -->
+        <div class='form-group'>
+            <label for='product-reviews'>Reviews and Recommendations</label><br/>
+            <p class='text-muted'>Add Reviews</p>
+            <textarea class='form-control' id='product-reviews' name='reviews' rows='10' />{{ "\n".join(product.reviews) }}</textarea>
+        </div>
+    </fieldset>
