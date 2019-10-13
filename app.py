@@ -6,7 +6,7 @@ import os
 
 # app.py
 
-host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/producter')
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/CitySkates')
 client = MongoClient(host=host)
 db = client.get_default_database()
 products = db.products
