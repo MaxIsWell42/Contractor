@@ -11,6 +11,7 @@ client = MongoClient(host=host)
 db = client.get_default_database()
 products = db.products
 comments = db.comments
+reviews = db.reviews
 
 app = Flask(__name__)
 
@@ -31,7 +32,8 @@ def products_submit():
     product = {
         'title': request.form.get('title'),
         'description': request.form.get('description'),
-        'created_at': datetime.now()
+        'created_at': datetime.now(),
+        'reviews ': request.form.get('reviews')
     }
     print(product)
     product_id = products.insert_one(product).inserted_id
@@ -42,7 +44,8 @@ def products_show(product_id):
     """Show a single product."""
     product = products.find_one({'_id': ObjectId(product_id)})
     product_comments = comments.find({'product_id': ObjectId(product_id)})
-    return render_template('products_show.html', product=product, comments=product_comments)
+    product_reviews = reviews.find({'product_id': ObjectId(product_id)})
+    return render_template('products_show.html', product=product, comments=product_comments, reviews=product_reviews)
 
 @app.route('/products/<product_id>/edit')
 def products_edit(product_id):
@@ -56,7 +59,7 @@ def products_update(product_id):
     updated_product = {
         'title': request.form.get('title'),
         'description': request.form.get('description'),
-        'videos': request.form.get('videos').split()
+        'Reviews': request.form.get('reviews')
     }
     products.update_one(
         {'_id': ObjectId(product_id)},

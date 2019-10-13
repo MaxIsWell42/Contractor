@@ -1,7 +1,7 @@
 <!-- templates/partials/comment_form.html -->
 
-<form action='/playlistr/comments' method='post'>
-    <input type='hidden' value='{{ playlist._id }}' name='playlist_id'/>
+<form action='/product/comments' method='post'>
+    <input type='hidden' value='{{ product._id }}' name='product_id'/>
         <fieldset>
             <legend>Add a Comment</legend>
             <!-- TITLE -->
@@ -22,6 +22,21 @@
                     name='content'
                     rows='10'
                     placeholder='Your comment...'></textarea>
+            </div>
+
+            <!-- REVIEWS-->
+            <div class='form-group'>
+                <label for='review'>Review</label><br>
+                    <form action="app.py">
+                        <select>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        <input type = "Submit" value = "confirm">
+                        </select>
+                    </form> 
             </div>
         </fieldset>
     
