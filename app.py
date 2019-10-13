@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 from datetime import datetime
 import os
 
-# app.py
+# TODO: Finish price, cart, and img addons. 
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/CitySkates')
 client = MongoClient(host=host)
@@ -12,9 +12,9 @@ db = client.get_default_database()
 products = db.products
 comments = db.comments
 reviews = db.reviews
+cart = db.cart
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def products_index():
@@ -26,15 +26,17 @@ def products_new():
     """Create a new product."""
     return render_template('products_new.html', product={}, title='New product')
 
-@app.route('/products', methods=['POST'])
+@app.route('/product', methods=['POST'])
 def products_submit():
     """Submit a new product."""
+    print(request.form)
     product = {
         'title': request.form.get('title'),
+        'price': request.form.get('price'),
         'description': request.form.get('description'),
         'created_at': datetime.now(),
         'reviews': request.form.get('reviews'),
-        'images': request.form.get('images')
+        'image': request.form.get('image')
     }
     print(product)
     product_id = products.insert_one(product).inserted_id
@@ -93,6 +95,12 @@ def comments_delete(comment_id):
     comments.delete_one({'_id': ObjectId(comment_id)})
     return redirect(url_for('products_show', product_id=comment.get('product_id')))
 
-if __name__ == '__main__':
-  app.run(debug=False, host='0.0.0.0', port=os.environ.get('PORT', 5000))
+@app.route('/cart', methods=['GET'])
+def user_cart():
+    collection = products.find()
+    for product in collection:
+        print(product)
+    return render_template('cart.html', products=product.get('product'))
 
+if __name__ == '__main__':
+  app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))

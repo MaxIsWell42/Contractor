@@ -1,40 +1,41 @@
 <fieldset>
-        <legend>Edit product</legend>
-        <!-- TITLE -->
-        <div class='form-group'>
-            <label for='product-title'>Title</label><br>
-            <input class='form-control' id='product-title' type='text' name='title' value='{{ product.title }}'/>
-        </div>
+    <legend>Edit product</legend>
+    <!-- TITLE -->
+    <div class='form-group'>
+        <label for='product-title'>Title</label><br>
+        <input class='form-control' id='product-title' type='text' name='title' value='{{ product.title }}'/>
+    </div>
 
-        <!-- Image -->
-        <div class='form-group'>
-            <label for='product-image'>Image</label><br>
-            <p>Add images by pasting it's link here.</p>
-            <textarea id='product-image' name='image' row='10'></textarea>
-        </div>
+    <!-- PRICE -->
+    <div class='form-group'>
+        <label for='product-price'>Price</label><br>
+        <input class='form-control' id='product-price' type='int' name='price' value='{{ product.price }}'/>
+    </div>
 
-    
-        <!-- DESCRIPTION -->
-        <div class='form-group'>
-            <label for='description'>Description</label><br>
-            <input class='form-control' id='description' type='text' name='description' value='{{ product.description }}' />
-        </div>
-    
-        <!-- REVIEWS -->
-        <div class='form-group'>
-            <label for='product-reviews'>Reviews and Recommendations</label><br>
-            <p class='text-muted'>Rate from 1-5:</p>
-                <form>
-                    <select>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    <input type="Submit" value="confirm" name='confirm'>
-                    </select>
-                </form>
-            <p class='text-muted'>Review</p>
-            <textarea class='form-control' id='product-reviews' name='reviews' rows='10' />{{ "\n".join(product.reviews) }}</textarea>
-        </div>
-    </fieldset>
+    <!-- Image -->
+    <div class='form-group'>
+        <label for='product-image'>Image</label><br>
+        <p>Add images by pasting it's link here.</p>
+        <textarea id='product-image' name='image' row='10'></textarea>
+    </div>
+
+    <div class='form-group'>
+        <label for='product-image'>Image</label><br>
+        <p>Add images by pasting it's link here.</p>
+        <textarea id='product-image' name='image' row='10'></textarea>
+    </div>
+
+    <!-- DESCRIPTION -->
+    <div class='form-group'>
+        <label for='description'>Description</label><br>
+        <input class='form-control' id='description' type='text' name='description' value='{{ product.description }}' />
+    </div>
+
+    {% include 'partials/rating.html' %}
+
+    <!-- REVIEWS -->
+    <div class='form-group'>
+        <label for='product-reviews'>Reviews</label><br>
+        <textarea class='form-control' type='text' id='product-reviews' name='reviews' rows='10' />{{ "\n".join(product.reviews) }}</textarea>
+    </div>
+</fieldset>

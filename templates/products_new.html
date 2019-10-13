@@ -4,13 +4,12 @@
 {% block content %}
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-        <!-- Was originally method='post', might need to change back -->
-        <form method='GET' action='/products'>
+        <form method='POST' action='/product'>
             {% include 'partials/products_form.html' %}
             <!-- BUTTON -->
             <div class='form-group'>
                 <button class='btn btn-primary' type='submit'>Save product</button>
-                <button class='btn btn-primary' type='cancel' action="/products">Cancel</a></button>
+                <button class='btn btn-primary' type='cancel'>Cancel</a></button>
             </div>
         </form>
     </div>
