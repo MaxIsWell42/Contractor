@@ -9,8 +9,9 @@
         <!-- Image -->
         <div class='form-group'>
             <label for='product-image'>Image</label><br>
-            <input type=
-            </div>
+            <p>Add images by pasting it's link here.</p>
+            <textarea id='product-image' name='image' row='10'></textarea>
+        </div>
 
     
         <!-- DESCRIPTION -->
@@ -22,7 +23,7 @@
         <!-- REVIEWS -->
         <div class='form-group'>
             <label for='product-reviews'>Reviews and Recommendations</label><br>
-            <p class='text-muted'>Add Reviews</p>
+            <p class='text-muted'>Rate from 1-5:</p>
                 <form>
                     <select>
                         <option value="1">1</option>
@@ -30,9 +31,10 @@
                         <option value="3">3</option>
                         <option value="4">4</option>
                         <option value="5">5</option>
-                    <input type = "Submit" value = "confirm">
+                    <input type="Submit" value="confirm" name='confirm'>
                     </select>
                 </form>
+            <p class='text-muted'>Review</p>
             <textarea class='form-control' id='product-reviews' name='reviews' rows='10' />{{ "\n".join(product.reviews) }}</textarea>
         </div>
     </fieldset>

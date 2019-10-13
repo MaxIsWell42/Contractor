@@ -33,7 +33,8 @@ def products_submit():
         'title': request.form.get('title'),
         'description': request.form.get('description'),
         'created_at': datetime.now(),
-        'reviews ': request.form.get('reviews')
+        'reviews': request.form.get('reviews'),
+        'images': request.form.get('images')
     }
     print(product)
     product_id = products.insert_one(product).inserted_id
