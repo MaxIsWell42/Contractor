@@ -6,9 +6,12 @@
 
 <a href='/products/new'>New products</a>
 
-{% for product in products %}
-    <h2><a href='/products/{{ product._id }}'>{{ product.title }}</a></h2>
-    <small>{{ product.description }}</small>
-    <small>{{ product.reviews }}</small>
-{% endfor %}
+<div class = 'row'>
+    {% for product in products %}
+        <div class='col-md-3'></div>
+        <h2><a href='/products/{{ product._id }}'>{{ product.title }}</a></h2>
+        <small>{{ product.description }}</small>
+        <small>{{ product.reviews }}</small>
+    {% endfor %}
+</div>
 {% endblock %}

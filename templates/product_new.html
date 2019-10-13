@@ -1,14 +1,15 @@
-<!-- templates/playlists_new.html -->
+<!-- templates/products_new.html -->
 {% extends 'base.html' %}
 
 {% block content %}
 <div class='row'>
     <div class='col-sm-6 col-sm-offset-3'>
-        <form method='POST' action='/playlists'>
-            {% include 'partials/playlists_form.html' %}
+        <form method='POST' action='/products'>
+            {% include 'partials/products_form.html' %}
             <!-- BUTTON -->
             <div class='form-group'>
-                <button class='btn btn-primary' type='submit'>Save Playlist</button>
+                <button class='btn btn-primary' type='submit'>Save product</button>
+                <button class='btn btn-primary' type='cancel'><a href="/products">Cancel</a></button>
             </div>
         </form>
     </div>
