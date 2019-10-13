@@ -5,6 +5,13 @@
             <label for='product-title'>Title</label><br>
             <input class='form-control' id='product-title' type='text' name='title' value='{{ product.title }}'/>
         </div>
+
+        <!-- Image -->
+        <div class='form-group'>
+            <label for='product-image'>Image</label><br>
+            <input type=
+            </div>
+
     
         <!-- DESCRIPTION -->
         <div class='form-group'>
@@ -14,8 +21,18 @@
     
         <!-- REVIEWS -->
         <div class='form-group'>
-            <label for='product-reviews'>Reviews and Recommendations</label><br/>
+            <label for='product-reviews'>Reviews and Recommendations</label><br>
             <p class='text-muted'>Add Reviews</p>
+                <form>
+                    <select>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    <input type = "Submit" value = "confirm">
+                    </select>
+                </form>
             <textarea class='form-control' id='product-reviews' name='reviews' rows='10' />{{ "\n".join(product.reviews) }}</textarea>
         </div>
     </fieldset>
