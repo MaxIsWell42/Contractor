@@ -97,7 +97,7 @@ def comments_delete(comment_id):
 
 @app.route('/cart', methods=['GET'])
 def user_cart():
-    collection = products.find()
+    collection = cart.find()
     for product in collection:
         print(product)
     return render_template('cart.html', products=product.get('product'))
