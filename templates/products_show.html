@@ -14,13 +14,12 @@
         <h2> <img src='{{ product.image }}'> </h2>
 
         <h2>{{ product.description }}</h2>
-        {% for reviews in product.reviews %}
-                <iframe width="420" height="315" src="{{ reviews }}"></iframe>
-                {% endfor %}
-                <p><a href='/products/{{ product._id }}/edit'>Edit</a></p>
-                    <p><form method='POST' action='/products/{{ product._id }}/delete'>
-                    <input type='hidden' name='_method' value='DELETE'>
-        <button class='btn btn-primary' type='submit'>Delete</button>
+        <p width="420" height="315" src="{{ reviews }}"></p>
+
+        <p><a href='/products/{{ product._id }}/edit'>Edit</a></p>
+        <form method='POST' action='/products/{{ product._id }}/delete'>
+            <input type='hidden' name='_method' value='DELETE'>
+            <button class='btn btn-primary' type='submit'>Delete</button>
         </form>
         </p>
 

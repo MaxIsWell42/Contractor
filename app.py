@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from datetime import datetime
+import time
 import os
 
 # TODO: Finish price, cart, and img addons. 
@@ -41,12 +42,12 @@ def products_submit():
     product_id = products.insert_one(product).inserted_id
     return redirect(url_for('products_show', product_id=product_id))
 
-@app.route('/products/<product_id>')
+@app.route('/products/<product_id>', methods=['GET'])
 def products_show(product_id):
     """Show a single product."""
     product = products.find_one({'_id': ObjectId(product_id)})
-    product_comments = comments.find({'product_id': ObjectId(product_id)})
-    product_reviews = reviews.find({'product_id': ObjectId(product_id)})
+    product_comments = comments.find({'product_id': product_id})
+    product_reviews = reviews.find({'product_id': product_id})
     return render_template('products_show.html', product=product, comments=product_comments, reviews=product_reviews)
 
 @app.route('/products/<product_id>/edit')
@@ -61,7 +62,7 @@ def products_update(product_id):
     updated_product = {
         'title': request.form.get('title'),
         'description': request.form.get('description'),
-        'Reviews': request.form.get('reviews')
+        'reviews': request.form.get('reviews')
     }
     products.update_one(
         {'_id': ObjectId(product_id)},
