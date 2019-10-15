@@ -9,14 +9,14 @@
     <!-- PRICE -->
     <div class='form-group'>
         <label for='product-price'>Price</label><br>
-        <input class='form-control' id='product-price' type='int' name='price' value='{{ product.price }}'/>
+        <input class='form-control' id='product-price' type='number' name='price' value='{{ product.price }}'/>
     </div>
 
     <!-- Image -->
     <div class='form-group'>
         <label for='product-image'>Image</label><br>
         <p>Add images by pasting it's link here.</p>
-        <textarea id='product-image' name='image' row='10'></textarea>
+        <input class='form-control' id='product-image' type='url' name='image' value='{{ product.image }}'/>
     </div>
 
     <!-- DESCRIPTION -->
@@ -30,6 +30,6 @@
     <!-- REVIEWS -->
     <div class='form-group'>
         <label for='product-reviews'>Reviews</label><br>
-        <textarea class='form-control' type='text' id='reviews' name='reviews' rows='10'>{{product.reviews}}</textarea>
+        <textarea class='form-control' type='text' id='reviews' name='reviews' rows='10'value='{{ product.reviews }}'>{{product.reviews}}</textarea>
     </div>
 </fieldset>

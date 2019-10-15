@@ -38,7 +38,6 @@ def products_submit():
         'reviews': request.form.get('reviews'),
         'image': request.form.get('image')
     }
-    print(product)
     product_id = products.insert_one(product).inserted_id
     return redirect(url_for('products_show', product_id=product_id))
 
