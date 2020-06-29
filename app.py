@@ -5,7 +5,7 @@ from datetime import datetime
 import time
 import os
 
-# TODO: Finish price, cart, and img addons. 
+# TODO: Finish price, cart. 
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/CitySkates')
 client = MongoClient(host=host)
